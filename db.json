@@ -1,0 +1,44 @@
+{
+  "todo": [
+    {
+      "name": "Study React.js now",
+      "isCompleted": true,
+      "todoId": "bbda5e8f-5b2e-4197-add4-06ca897e5e85"
+    },
+    {
+      "name": "Study Node.js",
+      "isCompleted": false,
+      "todoId": "b8605777-d885-4be0-87de-3487cff0a914"
+    },
+    {
+      "name": "Study Redux.js",
+      "isCompleted": true,
+      "todoId": "9bb7f3af-c091-45a2-85d9-2e7b880ff1ea"
+    },
+    {
+      "name": "Study Next.js",
+      "isCompleted": true,
+      "todoId": "759b656b-6ce2-4496-a916-1cda95b2e901"
+    },
+    {
+      "name": "Study Angular.js",
+      "isCompleted": false,
+      "todoId": "ba848ed0-6c8d-45a7-81c2-46a39cf01d3f"
+    },
+    {
+      "name": "Study webpack",
+      "isCompleted": false,
+      "todoId": "612af869-6cf6-4585-ae5d-f2094f9dc2ff"
+    },
+    {
+      "name": "Study express",
+      "isCompleted": false,
+      "todoId": "f6f2b7eb-db68-4f57-82b9-ced96e86fca2"
+    },
+    {
+      "name": "New Task Added..!",
+      "isCompleted": false,
+      "todoId": "87bbfbe7-ab29-48f0-b637-99b25deb4f34"
+    }
+  ]
+}

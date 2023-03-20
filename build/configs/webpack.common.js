@@ -25,6 +25,10 @@ module.exports = () => ({
         path: outputPath
     },
 
+    optimization: {
+        runtimeChunk: 'single'
+    },
+
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
@@ -33,6 +37,7 @@ module.exports = () => ({
         }
     },
 
+    devtool: 'source-map',
     devServer: {
         static: {
             directory: outputPath
@@ -41,8 +46,8 @@ module.exports = () => ({
             writeToDisk: true
         },
         port: portToListen,
-        hot: true,
-        liveReload: true
+        hot: false,
+        liveReload: false
     },
 
     plugins: [
@@ -67,7 +72,7 @@ module.exports = () => ({
                     loader: 'esbuild-loader',
                     options: {
                         loader: 'jsx',
-                        target: 'es6',
+                        target: 'es2015',
                         jsx: 'automatic'
                     }
                 }

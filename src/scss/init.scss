@@ -2,7 +2,64 @@
     color: red;
 }
 
-.baseContainer {
+body {
+    background-color: #e7ebef;
+}
+.container{
+    block-size: fit-content;
     display: flex !important;
     justify-content: center;
+}
+.todo-box{
+    box-shadow: 5px 5px 5px #aaaaaa;
+    border: 1px solid #BFBFBF;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    padding: 16px;
+    inline-size: 50%;
+}
+
+.add-button {
+    margin-block-start: 20px !important;
+    inset-inline-start: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.menuBarBox {
+    box-shadow: 0 5px 5px #aaaaaa;
+    background-color: #1876d2;
+    .tabButton{
+        color: #fff;
+    }
+    .MuiTabs-indicator {
+        background-color: #fff !important;
+    }
+}
+
+.todo-count-list {
+    margin-block-start: 10px;
+}
+.todo-count {
+    margin: 10px !important;
+    text-decoration: none !important;
+}
+
+$todo-app: ".todo-app";
+
+#{$todo-app} {
+	&-lists {
+        block-size: 500px !important;
+        inline-size: 100%;
+        background-color: #f4f4f4;
+        padding: 8px;
+        overflow: auto;
+    }
+}
+
+.count-details {
+    justify-content: center;
+    display: flex;
+    padding: 10px;
 }

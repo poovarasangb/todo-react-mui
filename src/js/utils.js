@@ -1,0 +1,56 @@
+import { BallotOutlined, PendingActionsRounded, FactCheckOutlined } from '@mui/icons-material';
+
+const todoFetchURL = "http://localhost:2020/todo";
+
+const menuList = [
+    {
+        name: "All",
+        type: "all",
+        id: 0,
+        IconClass: BallotOutlined
+    }, {
+        name: "Pending",
+        type: "pending",
+        id: 1,
+        IconClass: PendingActionsRounded
+    }, {
+        name: "Completed",
+        type: "completed",
+        id: 2,
+        IconClass: FactCheckOutlined
+    }
+];
+
+const todoHeader = [{
+    id: "index",
+    field: "index",
+    headerName: '#',
+    headerAlign: 'left',
+    width: 50
+}, {
+    id: "name",
+    field: "name",
+    headerName: 'Task Name',
+    headerAlign: 'Center',
+    width: 250,
+    editable: true
+}, {
+    id: "dueDate",
+    field: "dueDate",
+    headerName: 'Due Date',
+    headerAlign: 'Center',
+    width: 100
+}];
+
+const differenceBet2Arrays = (arr1, arr2) => {
+    let difference = [];
+    if (arr1.length > arr2.length){
+        difference = [...arr1].filter(x => !arr2.includes(x));
+    }
+    if (arr1.length <= arr2.length){
+        difference = [...arr2].filter(x => !arr1.includes(x));
+    }
+    return difference;
+};
+
+export { menuList, todoFetchURL, todoHeader, differenceBet2Arrays };
