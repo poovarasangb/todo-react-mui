@@ -13,7 +13,6 @@ module.exports = {
     ],
     overrides: [
     ],
-    parser: "@babel/eslint-parser",
     parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module'
@@ -183,7 +182,8 @@ module.exports = {
                 ignoreStrings: false,
                 ignoreTemplateLiterals: true
             }
-        ]
+        ],
+        "react/jsx-closing-bracket-location": [2, "tag-aligned"]
     },
     settings: {
         react: {

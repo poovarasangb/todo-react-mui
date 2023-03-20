@@ -89,7 +89,7 @@ const InputArea = ({
             autoFocus
             error={helperText !== ""}
             helperText={helperText}
-            />
+        />
     );
 
     return (

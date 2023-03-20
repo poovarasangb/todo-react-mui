@@ -61,7 +61,7 @@ const ListView = ({
     const handleCellEditing = useCallback(async (editedRow, event) => {
         const { value } = event.target;
         const newArr = [...todoList];
-        const index = newArr.findIndex((_todo) => _todo.todoId === editedRow.row.todoId);
+        const index = newArr.findIndex((_todo) => _todo.todoId === editedRow.id);
         newArr[index].name = value;
         setTodoList(() => newArr);
         await axios.put(`${todoFetchURL}/${editedRow.id}`, {

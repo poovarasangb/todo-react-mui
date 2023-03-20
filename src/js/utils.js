@@ -1,4 +1,7 @@
-import { BallotOutlined, PendingActionsRounded, FactCheckOutlined } from '@mui/icons-material';
+import {
+    BallotOutlined, PendingActionsRounded, FactCheckOutlined
+} from '@mui/icons-material';
+import DeleteAction from './component/deleteAction';
 
 const todoFetchURL = "http://localhost:2020/todo";
 
@@ -39,7 +42,17 @@ const todoHeader = [{
     field: "dueDate",
     headerName: 'Due Date',
     headerAlign: 'Center',
-    width: 100
+    width: 150
+}, {
+    id: "delete",
+    field: "Delete",
+    headerClassName: "hideHeader",
+    renderCell: (cellValues) => (
+        <DeleteAction
+            deleted={cellValues}
+            todoFetchURL={todoFetchURL}
+        />
+    )
 }];
 
 const differenceBet2Arrays = (arr1, arr2) => {

@@ -58,8 +58,25 @@ $todo-app: ".todo-app";
     }
 }
 
+.hideHeader {
+    display: none !important;
+}
+
 .count-details {
     justify-content: center;
     display: flex;
     padding: 10px;
+}
+
+.actionItems{
+    visibility: hidden;
+    opacity: 0;
+}
+
+.MuiDataGrid-row:hover {
+    .actionItems{
+        cursor: pointer;
+        visibility: visible;
+        opacity: 1;
+    }
 }
