@@ -18,6 +18,14 @@ const sortData = function (prop) {
     };
 };
 
+const formatDate = (date) => {
+    if (date && date !== null){
+        const _date = new Date(date);
+        return `${_date.getDate() }/${ _date.getMonth() + 1 }/${ _date.getFullYear()}`;
+    }
+    return "--";
+};
+
 const ListView = ({
     type
 }) => {
@@ -31,7 +39,7 @@ const ListView = ({
     const generateTodo = useCallback((list) => list.map(
         ({dueDate, ...rest}, index ) => ({
             index: index + 1,
-            dueDate: dueDate || "--",
+            dueDate: formatDate(dueDate),
             ...rest
         })),
     []);

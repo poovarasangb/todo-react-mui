@@ -2,7 +2,7 @@
   "todo": [
     {
       "name": "Study React.js",
-      "isCompleted": true,
+      "isCompleted": false,
       "todoId": "81ef299a-2c92-4006-86da-95f977e88878"
     },
     {
@@ -11,9 +11,27 @@
       "todoId": "4ce1e688-4138-426c-b17c-a2d1f3d1b9ec"
     },
     {
-      "name": "Study Webpack5",
+      "name": "Study Webpack 5",
       "isCompleted": false,
       "todoId": "0962e855-c687-44c1-9e93-2b969ae299b8"
+    },
+    {
+      "name": "Study Node.js",
+      "isCompleted": true,
+      "todoId": "eb8d0d05-b0de-4391-8aff-63a775003786",
+      "dueDate": null
+    },
+    {
+      "name": "Study Express",
+      "isCompleted": false,
+      "todoId": "a8c29136-19ec-482c-a70b-8d3e8dad7f55",
+      "dueDate": null
+    },
+    {
+      "name": "Study OOPS",
+      "isCompleted": false,
+      "todoId": "b37c9b45-4ff5-4624-88ba-94f7cad32c63",
+      "dueDate": 1680201000000
     }
   ]
 }

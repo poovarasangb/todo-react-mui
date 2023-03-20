@@ -1,7 +1,10 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { emitCustomEvent } from 'react-custom-events';
 
-import { TextField, Button } from '@mui/material';
+import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { TextField, Button, Tooltip } from '@mui/material';
+import { CalendarMonth } from '@mui/icons-material';
 
 import PropTypes from "prop-types";
 import { v4 as uuid } from 'uuid';
@@ -10,13 +13,35 @@ import axios from 'axios';
 import { useTodoContext } from 'js/context/todoContext';
 import { todoFetchURL } from 'js/utils';
 
+const CalendarIcon = ({
+    setCalOpenStatus
+}) => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const handleCalIconClick = useCallback(() => setCalOpenStatus((prev) => !prev), []);
+    return (
+        <Tooltip
+            title="Due date"
+            placement="bottom"
+            arrow
+        >
+            <CalendarMonth
+                onClick={handleCalIconClick}
+                color="primary"
+            />
+        </Tooltip>
+    );
+
+};
+
 const InputArea = ({
     id = "todo-detail",
     errorText = "Task details should not be empty",
     successMessage = "Todo Added Successfully..!"
 }) => {
+    const dueDate = useRef();
     const { setTodoList } = useTodoContext();
     const [helperText, setHelperText] = useState("");
+    const [openCal, setCalOpenStatus] = useState(false);
 
     const handleFocus = useCallback(() => {
         setHelperText(() => "");
@@ -30,17 +55,19 @@ const InputArea = ({
         const todo = {
             name: value,
             isCompleted: false,
-            todoId: uuid()
+            todoId: uuid(),
+            dueDate: dueDate.current || null
         };
-        await axios.post(todoFetchURL, todo);
         setTodoList((prev) => [
             ...prev,
             todo
         ]);
+        await axios.post(todoFetchURL, todo);
         emitCustomEvent("show-alert", {
             message: successMessage
         });
         clearInput();
+        dueDate.current = null;
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -64,7 +91,7 @@ const InputArea = ({
             handleAddTodo(value);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [helperText]);
 
     const handleButtonPress = useCallback(() => {
         const { value = '' } = document.getElementById(id);
@@ -89,12 +116,30 @@ const InputArea = ({
             autoFocus
             error={helperText !== ""}
             helperText={helperText}
+            InputProps={{endAdornment: <CalendarIcon setCalOpenStatus={setCalOpenStatus} />}}
         />
     );
+
+    const handleChange = useCallback((selectedDate) => {
+        if (dueDate.current !== null){
+            dueDate.current = null;
+        }
+        dueDate.current = new Date(selectedDate).getTime();
+        setCalOpenStatus((prev) => !prev);
+    }, []);
 
     return (
         <>
             {renderTextField()}
+            {
+                openCal &&
+                <LocalizationProvider dateAdapter={AdapterDateFns} >
+                    <DateCalendar
+                        onChange={handleChange}
+                        minDate={new Date()}
+                    />
+                </LocalizationProvider>
+            }
             <Button
                 className='add-button'
                 onClick={handleButtonPress}

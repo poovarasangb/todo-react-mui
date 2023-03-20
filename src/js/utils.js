@@ -29,20 +29,21 @@ const todoHeader = [{
     field: "index",
     headerName: '#',
     headerAlign: 'left',
-    width: 50
+    width: 20
+
 }, {
     id: "name",
     field: "name",
     headerName: 'Task Name',
     headerAlign: 'Center',
-    width: 250,
+    width: 400,
     editable: true
 }, {
     id: "dueDate",
     field: "dueDate",
     headerName: 'Due Date',
     headerAlign: 'Center',
-    width: 150
+    width: 100
 }, {
     id: "delete",
     field: "Delete",

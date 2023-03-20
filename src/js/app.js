@@ -34,6 +34,8 @@ export const App = () => {
                 <TodoContext.Provider value={context}>
                     <Suspense fallback={null}>
                         <InputArea />
+                    </Suspense>
+                    <Suspense fallback={null}>
                         <CountDetails />
                     </Suspense>
                     <Suspense fallback={null}>
