@@ -53,7 +53,7 @@ const ListView = ({
             const completedList = todoList.filter(({isCompleted}) => isCompleted);
             selectionModel = completedList.map(({todoId}) => todoId);
             if (type === "all") {
-                list = todoList.sort(sortData("isCompleted"));
+                list = todoList.sort(sortData("dueDate")).sort(sortData("isCompleted"));
             } else {
                 list = completedList;
             }
@@ -69,6 +69,10 @@ const ListView = ({
     const handleCellEditing = useCallback(async (editedRow, event) => {
         const { value } = event.target;
         const newArr = [...todoList];
+        if (value === ""){
+            setTodoList(() => newArr);
+            return;
+        }
         const index = newArr.findIndex((_todo) => _todo.todoId === editedRow.id);
         newArr[index].name = value;
         setTodoList(() => newArr);

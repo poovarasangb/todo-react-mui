@@ -1,8 +1,6 @@
-import { useCallback, useRef, useState } from 'react';
+import { forwardRef, useCallback, useRef, useState } from 'react';
 import { emitCustomEvent } from 'react-custom-events';
 
-import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { TextField, Button, Tooltip } from '@mui/material';
 import { CalendarMonth } from '@mui/icons-material';
 
@@ -12,10 +10,11 @@ import axios from 'axios';
 
 import { useTodoContext } from 'js/context/todoContext';
 import { todoFetchURL } from 'js/utils';
+import TodoDatePicker from './datePicker';
 
-const CalendarIcon = ({
+const CalendarIcon = forwardRef(({
     setCalOpenStatus
-}) => {
+}, ref) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleCalIconClick = useCallback(() => setCalOpenStatus((prev) => !prev), []);
     return (
@@ -25,13 +24,14 @@ const CalendarIcon = ({
             arrow
         >
             <CalendarMonth
+                className='curPointer'
+                ref={ref}
                 onClick={handleCalIconClick}
                 color="primary"
             />
         </Tooltip>
     );
-
-};
+});
 
 const InputArea = ({
     id = "todo-detail",
@@ -39,6 +39,7 @@ const InputArea = ({
     successMessage = "Todo Added Successfully..!"
 }) => {
     const dueDate = useRef();
+    const buttonRef = useRef();
     const { setTodoList } = useTodoContext();
     const [helperText, setHelperText] = useState("");
     const [openCal, setCalOpenStatus] = useState(false);
@@ -116,7 +117,7 @@ const InputArea = ({
             autoFocus
             error={helperText !== ""}
             helperText={helperText}
-            InputProps={{endAdornment: <CalendarIcon setCalOpenStatus={setCalOpenStatus} />}}
+            InputProps={{endAdornment: <CalendarIcon ref={buttonRef} setCalOpenStatus={setCalOpenStatus} />}}
         />
     );
 
@@ -133,12 +134,11 @@ const InputArea = ({
             {renderTextField()}
             {
                 openCal &&
-                <LocalizationProvider dateAdapter={AdapterDateFns} >
-                    <DateCalendar
-                        onChange={handleChange}
-                        minDate={new Date()}
-                    />
-                </LocalizationProvider>
+                <TodoDatePicker
+                    anchorEl={buttonRef.current}
+                    handleChange={handleChange}
+                    setCalOpenStatus={setCalOpenStatus}
+                />
             }
             <Button
                 className='add-button'

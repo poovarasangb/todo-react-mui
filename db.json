@@ -1,37 +1,34 @@
 {
   "todo": [
     {
-      "name": "Study React.js",
-      "isCompleted": false,
-      "todoId": "81ef299a-2c92-4006-86da-95f977e88878"
-    },
-    {
-      "name": "Study Redux.js",
-      "isCompleted": false,
-      "todoId": "4ce1e688-4138-426c-b17c-a2d1f3d1b9ec"
-    },
-    {
-      "name": "Study Webpack 5",
-      "isCompleted": false,
-      "todoId": "0962e855-c687-44c1-9e93-2b969ae299b8"
-    },
-    {
-      "name": "Study Node.js",
-      "isCompleted": true,
-      "todoId": "eb8d0d05-b0de-4391-8aff-63a775003786",
-      "dueDate": null
-    },
-    {
-      "name": "Study Express",
-      "isCompleted": false,
-      "todoId": "a8c29136-19ec-482c-a70b-8d3e8dad7f55",
-      "dueDate": null
-    },
-    {
       "name": "Study OOPS",
       "isCompleted": false,
       "todoId": "b37c9b45-4ff5-4624-88ba-94f7cad32c63",
       "dueDate": 1680201000000
+    },
+    {
+      "name": "Study Webpack 5",
+      "isCompleted": true,
+      "todoId": "603c2eff-8629-413f-826a-ac7d6e95c587",
+      "dueDate": 1679596200000
+    },
+    {
+      "name": "Study React",
+      "isCompleted": false,
+      "todoId": "9a080b8a-2b92-4db5-9a85-601842ea947c",
+      "dueDate": 1679509800000
+    },
+    {
+      "name": "Study redux",
+      "isCompleted": false,
+      "todoId": "2e1163b1-4a57-4aa8-9ffe-5d41fdbc89d2",
+      "dueDate": 1680201000000
+    },
+    {
+      "name": "Study Node.js",
+      "isCompleted": true,
+      "todoId": "bbd029cf-fa42-46ad-8704-02a13e57fc28",
+      "dueDate": 1679682600000
     }
   ]
 }
