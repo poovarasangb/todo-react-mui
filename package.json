@@ -7,10 +7,12 @@
     "gitClean": "git clean -x -d -f -e .history -e src -e build",
     "clean": "rm -rf node_modules package-lock.json output pnpm-lock.yaml",
     "ins": "pnpm i --registry https://registry.npmjs.com",
+    "postinstall": "./node_modules/.bin/husky install",
     "cleanIns": "npm run clean && pnpm run ins",
     "devServer": "webpack serve --config  ./build/configs/webpack.common.js",
     "devDBServer": "json-server -p 2020 --watch db.json --id todoId",
-    "cleanWatch": "npm run cleanIns && npm run watch"
+    "cleanWatch": "npm run cleanIns && npm run watch",
+    "hook-script-pre-commit": "node --max-old-space-size=8192 ./build/gitScripts/preCommit.js"
   },
   "eslintConfig": {
     "extends": [
@@ -75,10 +77,17 @@
     "eslint-plugin-react": "~7.31.11",
     "eslint-webpack-plugin": "~3.2.0",
     "html-webpack-plugin": "~5.5.0",
+    "husky": "^8.0.2",
     "mini-css-extract-plugin": "~2.7.0",
     "sass-loader": "~13.2.0",
+    "terminal-kit": "^3.0.0",
     "webpack": "~5.75.0",
     "webpack-cli": "~5.0.0",
     "webpack-dev-server": "~4.11.1"
+  },
+  "husky": {
+    "hooks": {
+        "pre-commit": "yarn pretty-quick --staged"
+    }
   }
 }
