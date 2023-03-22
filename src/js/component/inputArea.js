@@ -1,8 +1,7 @@
-import { forwardRef, useCallback, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useMemo, useRef, useState } from 'react';
 import { emitCustomEvent } from 'react-custom-events';
 
-import { TextField, Button, Tooltip } from '@mui/material';
-import { CalendarMonth } from '@mui/icons-material';
+import { TextField, Button } from '@mui/material';
 
 import PropTypes from "prop-types";
 import { v4 as uuid } from 'uuid';
@@ -12,26 +11,7 @@ import { useTodoContext } from 'js/context/todoContext';
 import { todoFetchURL } from 'js/utils';
 import TodoDatePicker from './datePicker';
 
-const CalendarIcon = forwardRef(({
-    setCalOpenStatus
-}, ref) => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const handleCalIconClick = useCallback(() => setCalOpenStatus((prev) => !prev), []);
-    return (
-        <Tooltip
-            title="Due date"
-            placement="bottom"
-            arrow
-        >
-            <CalendarMonth
-                className='curPointer'
-                ref={ref}
-                onClick={handleCalIconClick}
-                color="primary"
-            />
-        </Tooltip>
-    );
-});
+const CalendarIcon = lazy(() => import("./calendarIcon"));
 
 const InputArea = ({
     id = "todo-detail",
@@ -103,6 +83,17 @@ const InputArea = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const renderCalIcon = () => (
+        <Suspense fallback={null}>
+            <CalendarIcon
+                ref={buttonRef}
+                setCalOpenStatus={setCalOpenStatus}
+            />
+        </Suspense>
+    );
+
+    const inputProps = useMemo(() => ({endAdornment: renderCalIcon()}), []);
+
     const renderTextField = () => (
         <TextField
             id={id}
@@ -117,7 +108,7 @@ const InputArea = ({
             autoFocus
             error={helperText !== ""}
             helperText={helperText}
-            InputProps={{endAdornment: <CalendarIcon ref={buttonRef} setCalOpenStatus={setCalOpenStatus} />}}
+            InputProps={inputProps}
         />
     );
 

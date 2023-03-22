@@ -8,4 +8,4 @@ document.body.appendChild(mainElement);
 document.title = 'ToDo - React/MUI';
 
 const root = createRoot(mainElement);
-root.render( <App/> );
+root.render( <App /> );

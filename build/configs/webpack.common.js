@@ -67,6 +67,11 @@ module.exports = () => ({
     module: {
         rules: [
             {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
+            },
+            {
                 test: /\.(js|jsx|mjs)$/,
                 use: {
                     loader: 'esbuild-loader',

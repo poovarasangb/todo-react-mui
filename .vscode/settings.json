@@ -1,0 +1,12 @@
+{
+    "files.exclude": {
+        "**/node_modules/**": true,
+        "**/output/**": true
+    },
+    "files.watcherExclude": {
+        "**/node_modules/**": true,
+        "**/output/**": true
+    },
+    "typescript.validate.enable": true,
+    "javascript.validate.enable": true
+}

@@ -25,5 +25,11 @@
       "scss/*": ["./src/scss/*"],
     },
   },
+  "include": [
+    "**/*.ts",
+    "**/*.js",
+    "**/*.tsx",
+    "**/*.jsx",
+  ],
   "exclude": ["node_modules", "output"]
 }
