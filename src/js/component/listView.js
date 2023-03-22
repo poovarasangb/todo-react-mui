@@ -27,7 +27,7 @@ const formatDate = (date) => {
 };
 
 const ListView = ({
-    type
+    type = "all"
 }) => {
     const { todoList, setTodoList } = useTodoContext();
     const [loading, setLoading] = useState(true);

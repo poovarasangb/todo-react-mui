@@ -10,17 +10,17 @@ const menuList = [
         name: "All",
         type: "all",
         id: 0,
-        IconClass: BallotOutlined
+        iconClass: <BallotOutlined />
     }, {
         name: "Pending",
         type: "pending",
         id: 1,
-        IconClass: PendingActionsRounded
+        iconClass: <PendingActionsRounded />
     }, {
         name: "Completed",
         type: "completed",
         id: 2,
-        IconClass: FactCheckOutlined
+        iconClass: <FactCheckOutlined />
     }
 ];
 

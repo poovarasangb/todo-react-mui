@@ -5,10 +5,20 @@ import { lazy, Suspense, useCallback, useState } from 'react';
 const ListView = lazy(() => import("./listView"));
 
 const TodoListing = () => {
-    const [selectedTab, setSelectTab] = useState(() => menuList[0].id);
-    const handleChange = useCallback((event, value) => {
-        setSelectTab(() => value);
+    const [selectedTab, setSelectTab] = useState(() => menuList[0]);
+
+    const renderListView = useCallback(() =>
+        <Suspense fallback={null} key={selectedTab.id}>
+            <ListView
+                type={selectedTab.type}
+            />
+        </Suspense>
+    , [selectedTab]);
+
+    const handleChange = useCallback((event, _selected) => {
+        setSelectTab(() => _selected);
     }, []);
+
     return (
         <>
             <Box className="menuBarBox">
@@ -22,24 +32,18 @@ const TodoListing = () => {
                     className='tabButton'
                 >
                     {
-                        menuList.map(({name, id, IconClass}) =>
+                        menuList.map((tab) =>
                             <Tab
-                                key={id}
-                                label={name}
-                                icon={<IconClass />}
+                                value={tab}
+                                key={tab.id}
+                                label={tab.name}
+                                icon={tab.iconClass}
                             />
                         )
                     }
                 </Tabs>
             </Box>
-            {menuList.map(({type, id}) => (
-                selectedTab === id &&
-                    <Suspense fallback={null} key={id}>
-                        <ListView
-                            type={type}
-                        />
-                    </Suspense>
-            ))}
+            {selectedTab && renderListView()}
 
         </>
     );
