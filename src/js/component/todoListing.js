@@ -1,6 +1,6 @@
-import { Box, Tabs, Tab } from '@mui/material';
-import { menuList } from 'js/utils';
-import { lazy, Suspense, useCallback, useState } from 'react';
+import { Box, Tabs, Tab } from "@mui/material";
+import { menuList } from "js/utils";
+import { lazy, Suspense, useCallback, useState } from "react";
 
 const ListView = lazy(() => import("./listView"));
 

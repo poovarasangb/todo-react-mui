@@ -1,15 +1,15 @@
-import { lazy, Suspense, useCallback, useMemo, useRef, useState } from 'react';
-import { emitCustomEvent } from 'react-custom-events';
+import { lazy, Suspense, useCallback, useMemo, useRef, useState } from "react";
+import { emitCustomEvent } from "react-custom-events";
 
-import { TextField, Button } from '@mui/material';
+import { TextField, Button } from "@mui/material";
 
 import PropTypes from "prop-types";
-import { v4 as uuid } from 'uuid';
-import axios from 'axios';
+import { v4 as uuid } from "uuid";
+import axios from "axios";
 
-import { useTodoContext } from 'js/context/todoContext';
-import { todoFetchURL } from 'js/utils';
-import TodoDatePicker from './datePicker';
+import { useTodoContext } from "js/context/todoContext";
+import { todoFetchURL } from "js/utils";
+import TodoDatePicker from "./datePicker";
 
 const CalendarIcon = lazy(() => import("./calendarIcon"));
 
@@ -29,7 +29,7 @@ const InputArea = ({
     }, []);
 
     const clearInput = useCallback(() => {
-        document.getElementById(id).value = '';
+        document.getElementById(id).value = "";
     }, [id]);
 
     const handleAddTodo = useCallback(async (value) => {
@@ -64,7 +64,7 @@ const InputArea = ({
         if (helperText !== ""){
             setHelperText(() => "");
         }
-        if (event.key === 'Enter'){
+        if (event.key === "Enter"){
             const { value } = event.target;
             if (value === ""){
                 return emptyTextHandling();
@@ -75,7 +75,7 @@ const InputArea = ({
     }, [helperText]);
 
     const handleButtonPress = useCallback(() => {
-        const { value = '' } = document.getElementById(id);
+        const { value = "" } = document.getElementById(id);
         if (value === ""){
             return emptyTextHandling();
         }
@@ -138,7 +138,7 @@ const InputArea = ({
                 variant='contained'
                 color='primary'
             >
-                {'Add'}
+                {"Add"}
             </Button>
         </>
     );

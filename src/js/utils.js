@@ -1,7 +1,7 @@
 import {
     BallotOutlined, PendingActionsRounded, FactCheckOutlined
-} from '@mui/icons-material';
-import DeleteAction from './component/deleteAction';
+} from "@mui/icons-material";
+import DeleteAction from "./component/deleteAction";
 
 const todoFetchURL = "http://localhost:2020/todo";
 
@@ -27,22 +27,22 @@ const menuList = [
 const todoHeader = [{
     id: "index",
     field: "index",
-    headerName: '#',
-    headerAlign: 'left',
+    headerName: "#",
+    headerAlign: "left",
     width: 20
 
 }, {
     id: "name",
     field: "name",
-    headerName: 'Task Name',
-    headerAlign: 'Center',
+    headerName: "Task Name",
+    headerAlign: "Center",
     width: 400,
     editable: true
 }, {
     id: "dueDate",
     field: "dueDate",
-    headerName: 'Due Date',
-    headerAlign: 'Center',
+    headerName: "Due Date",
+    headerAlign: "Center",
     width: 100
 }, {
     id: "delete",

@@ -1,11 +1,11 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
-import { emitCustomEvent } from 'react-custom-events';
-import axios from 'axios';
+import { emitCustomEvent } from "react-custom-events";
+import axios from "axios";
 
-import { DeleteForever } from '@mui/icons-material';
-import { Tooltip } from '@mui/material';
-import { useTodoContext } from 'js/context/todoContext';
+import { DeleteForever } from "@mui/icons-material";
+import { Tooltip } from "@mui/material";
+import { useTodoContext } from "js/context/todoContext";
 
 const DeleteAction = ({
     deleted,

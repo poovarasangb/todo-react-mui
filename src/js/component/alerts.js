@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-import { Snackbar, Alert } from '@mui/material';
-import { useCustomEventListener } from 'react-custom-events';
+import { Snackbar, Alert } from "@mui/material";
+import { useCustomEventListener } from "react-custom-events";
 
 const AlertMessage = () => {
     const [options, setOptions] = useState({

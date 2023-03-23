@@ -1,11 +1,13 @@
 /* eslint-env node */
 
+// const fs = require("fs");
 const { execSync } = require("child_process");
 const path = require("path");
 const log = require("terminal-kit").terminal;
 
 const basePath = path.resolve(__dirname, "../../");
 
+// eslint-disable-next-line quotes
 const ESLINT_CMD = `node --max-old-space-size=8192 ./node_modules/eslint/bin/eslint.js -c .eslintrc.js -f stylish --quiet`;
 
 // #1 - Run eslint for modified JS files
@@ -28,7 +30,7 @@ if (jsFiles.length) {
             cwd: basePath
         });
     } catch (lintError) {
-        log.red.bold(`\nError in eslint pre-commit hook !\n`);
+        log.red.bold("\nError in eslint pre-commit hook !\n");
         if (lintError.output) {
             log.yellow(`\n\n${lintError.output.toString()}`);
         }
@@ -38,3 +40,18 @@ if (jsFiles.length) {
 } else {
     process.exit(0);
 }
+
+// function getFiles (dir, files_){
+//     files_ = files_ || [];
+//     var files = fs.readdirSync(dir);
+//     for (var i in files){
+//         var name = `${dir }/${ files[i]}`;
+//         if (fs.statSync(name).isDirectory()){
+//             getFiles(name, files_);
+//         } else {
+//             files_.push(name);
+//         }
+//     }
+//     return files_;
+// }
+// const modifiedFiles = getFiles("src/js");

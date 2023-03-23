@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import {Link } from '@mui/material';
+import { useState, useEffect } from "react";
+import {Link } from "@mui/material";
 
-import { useTodoContext } from 'js/context/todoContext';
+import { useTodoContext } from "js/context/todoContext";
 
 const Counter = ({count, name}) => (
     <Link className='todo-count'>

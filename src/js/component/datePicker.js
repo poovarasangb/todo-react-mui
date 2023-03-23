@@ -1,7 +1,7 @@
-import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { Popover } from '@mui/material';
-import { useCallback } from 'react';
+import { DateCalendar, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { Popover } from "@mui/material";
+import { useCallback } from "react";
 
 const TodoDatePicker = ({
     id = "todoDatePicker",
@@ -31,12 +31,12 @@ const TodoDatePicker = ({
             anchorEl={anchorEl}
             onClose={handleClose}
             anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'center'
+                vertical: "bottom",
+                horizontal: "center"
             }}
             transformOrigin={{
-                vertical: 'top',
-                horizontal: 'center'
+                vertical: "top",
+                horizontal: "center"
             }}
         >
             {renderCalendar()}
