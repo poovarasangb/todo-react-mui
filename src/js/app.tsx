@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState, lazy, Suspense, ReactElement } from "react";
 
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 
 import axios from "axios";
 
-import { TodoContext } from './context/todoContext';
+import { TodoContext } from "./context/todoContext";
 import { todoFetchURL } from "./utils";
 
 const CountDetails = lazy(() => import("./component/countDetails"));
@@ -13,7 +13,7 @@ const TodoListing = lazy(() => import("./component/todoListing"));
 const InputArea = lazy(() => import("./component/inputArea"));
 const AlertMessage = lazy(() => import("./component/alerts"));
 
-export const App = () : ReactElement => {
+export const App = (): ReactElement => {
     const [todoList, setTodoList] = useState([]);
 
     const fetchList = useCallback(async () => {
@@ -51,4 +51,4 @@ export const App = () : ReactElement => {
             </Box>
         </Container>
     );
-}
+};

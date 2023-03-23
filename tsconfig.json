@@ -26,10 +26,12 @@
     },
   },
   "include": [
+    "**/*", 
     "**/*.ts",
     "**/*.js",
     "**/*.tsx",
     "**/*.jsx",
+    ".eslintrc.js"
   ],
   "exclude": ["node_modules", "output"]
 }

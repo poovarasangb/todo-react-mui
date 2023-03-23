@@ -9,13 +9,24 @@ module.exports = {
     extends: [
         "eslint:recommended",
         'plugin:react/recommended',
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
+        path.resolve(__dirname, "./build/eslint/eslint-config-typescript.js")
     ],
     overrides: [
     ],
     parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module'
+        sourceType: "module",
+        allowImportExportEverywhere: false,
+        ecmaFeatures: {
+            globalReturn: false
+        },
+        requireConfigFile: false,
+        babelOptions: {
+            presets: ["@babel/env", "@babel/react"]
+        },
+        tsconfigRootDir: `${__dirname}`,
+        ecmaVersion: 2022,
+        project: "tsconfig.json"
     },
     plugins: [
         'react',
