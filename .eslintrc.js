@@ -2,13 +2,13 @@ const path = require("path");
 
 module.exports = {
     env: {
-        browser: true,
-        es6: true,
-        node: true
+        "browser": true,
+        "es6": true,
+        "node": true
     },
     extends: [
         "eslint:recommended",
-        'plugin:react/recommended',
+        "plugin:react/recommended",
         "plugin:react-hooks/recommended",
         path.resolve(__dirname, "./build/eslint/eslint-config-typescript.js")
     ],
@@ -29,27 +29,29 @@ module.exports = {
         project: "tsconfig.json"
     },
     plugins: [
-        'react',
-        'react-hooks',
+        "react",
+        "react-hooks",
         "import"
     ],
     rules: {
-        'react/react-in-jsx-scope': 0,
-        'arrow-body-style': [2, 'as-needed'],
-        'prefer-template': 2,
-        'react/prop-types': 0,
-        'react-hooks/exhaustive-deps': 'error',
+        "no-undef": "off",
+        "quotes": [2, "double"],
+        "react/react-in-jsx-scope": 0,
+        "arrow-body-style": [2, "as-needed"],
+        "prefer-template": 2,
+        "react/prop-types": 0,
+        "react-hooks/exhaustive-deps": "error",
         "react-hooks/rules-of-hooks": "error",
-        'semi-spacing': [
+        "semi-spacing": [
             2,
             {
                 before: false,
                 after: true
             }
         ],
-        semi: [2, 'always'],
+        semi: [2, "always"],
         "object-property-newline": 1,
-        'object-curly-newline': [
+        "object-curly-newline": [
             2,
             {
                 consistent: true,
@@ -66,7 +68,6 @@ module.exports = {
         "comma-dangle": [2, "never"],
         "no-trailing-spaces": 2,
         "no-undef-init": 2,
-        "no-undef": "error",
         "object-shorthand": [2, "always"],
         "react/jsx-no-undef": [
             2, {
@@ -198,7 +199,7 @@ module.exports = {
     },
     settings: {
         react: {
-            version: 'detect'
+            version: "detect"
         },
         "import/resolver": {
             webpack: {

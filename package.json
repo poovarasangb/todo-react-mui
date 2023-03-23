@@ -45,6 +45,7 @@
     "@mui/types": "^7.2.3",
     "@mui/x-data-grid": "~6.0.2",
     "@mui/x-date-pickers": "^6.0.2",
+    "@types/node": "^18.15.5",
     "@types/prop-types": "^15.7.5",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
